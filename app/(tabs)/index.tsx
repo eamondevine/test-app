@@ -1,13 +1,24 @@
-import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import Button from "../components/Button";
+import ImageViewer from "../components/ImageViewer";
+
+const PlaceholderImage = require("@/assets/images/manonfire.png");
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello Android.</Text>
-      <Link href="/(tabs)/about" style={styles.button}>
-        Go to About screen
-      </Link>
+      <View style={styles.imageContainer}>
+        <ImageViewer
+          imgSource={PlaceholderImage}
+          height={440}
+          width={320}
+          borderRadius={18}
+        />
+      </View>
+      <View style={styles.footerContainer}>
+        <Button label="Choose a photo"></Button>
+        <Button label="Ya bitch..."></Button>
+      </View>
     </View>
   );
 }
@@ -26,5 +37,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textDecorationLine: "underline",
     color: "#fff",
+  },
+  imageContainer: {
+    flex: 1,
+  },
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: "center",
   },
 });

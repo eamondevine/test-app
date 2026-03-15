@@ -6,16 +6,18 @@ type Props = {
   height: number;
   width: number;
   borderRadius: number;
+  image?: string;
 };
 
-export default function ImageViewer(props: Props) {
+export default function ImageViewer({image, imgSource, height, width, borderRadius}: Props) {
+  const imageSource = image ? {uri: image} : imgSource;
   return (
     <Image
-      source={props.imgSource}
+      source={imageSource}
       style={{
-        height: props.height,
-        width: props.width,
-        borderRadius: props.borderRadius,
+        height: height,
+        width: width,
+        borderRadius: borderRadius,
       }}
     />
   );
